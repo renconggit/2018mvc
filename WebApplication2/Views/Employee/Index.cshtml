@@ -1,0 +1,71 @@
+﻿@using WebApplication2.Models
+@*@model EmployeeViewModel*@
+@model EmployeeListViewModel
+
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        @*@{
+           // WebApplication2.Models.Employee emp = (WebApplication2.Models.Employee)ViewBag.Employee;
+    //WebApplication2.Models.Employee emp = (WebApplication2.Models.Employee)ViewData["Employee"];
+        }
+        <b>Employee Details </b><br />
+        <br />
+
+        Employee Name : @Model.FirstName @Model.LastName <br />
+        @if (Model.Salary > 15000)
+        {
+            <span style="background-color:yellow">
+                Employee Salary: @Model.Salary.ToString("C")
+            </span>
+        }
+        else
+        {
+            <span style="background-color:green">
+                Employee Salary: @Model.Salary.ToString("C")
+            </span>
+        }*@
+        @*Hello @Model.UserName
+        <hr />
+        <div>
+            <b>Employee Details</b><br />
+            Employee Name1 : @Model.EmployeeName <br />
+            <span style="background-color:@Model.SalaryColor">
+                Employee Salary: @Model.Salary
+            </span>
+            </div>*@
+
+        @*<h3>Hello @Model.UserName</h3>*@
+        <hr />
+        <div>
+            <a href ="/Employee/AddNew">Add New</a>
+                <table>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Salary</th>
+                    </tr>
+                    @foreach (EmployeeViewModel item in Model.Employees)
+                    {
+                        <tr>
+                            <td>@item.EmployeeName</td>
+                            <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                        </tr>
+                    }
+                </table>
+</div>
+</div>
+</body>
+</html>

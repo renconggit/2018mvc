@@ -1,0 +1,31 @@
+﻿@model WebApplication2.Models.UserDetails
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        @Html.ValidationMessage("CredentialError", new {style="color:red"})
+@using (Html.BeginForm("DoLogin", "Authentication", FormMethod.Post)) 
+{ 
+    @Html.LabelFor(a => a.UserName);
+    @Html.TextBoxFor(b => b.UserName);
+    <br />
+    
+    @Html.LabelFor(c => c.Password);
+    @Html.TextBoxFor(d => d.Password, new { @class = "EnAddressmodify", style = "width:86px;" });
+    <br />
+    
+    <input type="submit" name="BtnSubmit" value="Login" />
+    
+}
+    </div>
+</body>
+</html>
